@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des médecins</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn{
+            background-color: greenyellow;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+</head>
+<body>
+<h1>Liste des médecins</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Spécialité</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="medecin : ${medecins}">
+        <td th:text="${medecin.id}"></td>
+        <td th:text="${medecin.nom}"></td>
+        <td th:text="${medecin.email}"></td>
+        <td th:text="${medecin.specialite}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}" class="btn">Retour</a>
+</body>
+</html>

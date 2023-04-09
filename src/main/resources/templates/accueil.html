@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Accueil</title>
+
+  <style>
+    .btn{
+      background-color: blue;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+
+</head>
+<body>
+<h1>Bienvenue sur le site de notre clinique</h1>
+<div>
+  <a th:href="@{/patients}" class="btn">Liste des patients</a>
+  <a th:href="@{/medecins}" class="btn">Liste des médecins</a>
+  <a th:href="@{/rendezVous}" class="btn">Liste des rendez-vous</a>
+</div>
+</body>
+</html>

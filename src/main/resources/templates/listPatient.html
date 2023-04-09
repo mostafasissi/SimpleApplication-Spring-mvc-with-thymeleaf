@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des patients</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn{
+            background-color: greenyellow;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+</head>
+<body>
+<h1>Liste des patients</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Date de naissance</th>
+        <th>Malade</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="patient : ${patients}">
+        <td th:text="${patient.id}"></td>
+        <td th:text="${patient.nom}"></td>
+        <td th:text="${#dates.format(patient.dateNaissance, 'dd/MM/yyyy')}"></td>
+        <td th:text="${patient.malade ? 'Oui' : 'Non'}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}" class="btn">Retour</a>
+</body>
+</html>

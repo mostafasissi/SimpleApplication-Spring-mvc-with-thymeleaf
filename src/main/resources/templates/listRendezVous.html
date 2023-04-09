@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des rendez-vous</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn{
+            background-color: greenyellow;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+</head>
+
+<body>
+<h1>Liste des rendez-vous</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Statut</th>
+        <th>Patient</th>
+        <th>Médecin</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="rendezVous : ${listeRendezVous}">
+        <td th:text="${rendezVous.id}"></td>
+        <td th:text="${rendezVous.date}"></td>
+        <td th:text="${rendezVous.status}"></td>
+        <td th:text="${rendezVous.patient.nom}"></td>
+        <td th:text="${rendezVous.medecin.nom}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}" class="btn">Retour</a>
+
+</body>
+</html>
